@@ -3,6 +3,7 @@
   id: JobCaptain
   groups:
   - CaptainHead
+  - CommandHeadset #CD
   - CaptainNeck
   - CaptainJumpsuit
   - CaptainBackpack
@@ -17,6 +18,7 @@
   groups:
   - GroupTankHarness
   - HoPHead
+  - CommandHeadset #CD
   - HoPNeck
   - HoPJumpsuit
   - HoPBackpack
@@ -65,6 +67,7 @@
   - CommonBackpack
   - BartenderOuterClothing
   - FormalShoes # CD
+  - BartenderGoldenShaker
   - Glasses
   - Survival
   - Trinkets
@@ -196,6 +199,7 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
@@ -214,6 +218,7 @@
   groups:
   - GroupTankHarness
   - QuartermasterHead
+  - QuartermasterHeadset #CD
   - QuartermasterNeck
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
@@ -233,6 +238,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
+  - CargoTechnicianID
   - Glasses
   - Survival
   - Trinkets
@@ -257,6 +263,7 @@
   groups:
   - GroupTankHarness
   - ChiefEngineerHead
+  - ChiefEngineerHeadset #CD
   - EngineeringEyewear # CD
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
@@ -311,6 +318,7 @@
   groups:
   - GroupTankHarness
   - ResearchDirectorHead
+  - ResearchDirectorHeadset #CD
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
   - ScientistBackpack
@@ -355,6 +363,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - HeadofSecurityHeadset #CD
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
@@ -429,6 +438,7 @@
   groups:
   - GroupTankHarness
   - ChiefMedicalOfficerHead
+  - ChiefMedicalOfficerHeadset #CD
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves

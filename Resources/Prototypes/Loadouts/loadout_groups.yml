@@ -26,6 +26,9 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
   - ClothingNeckLGBTPin
   - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
@@ -44,6 +47,12 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -63,7 +72,6 @@
   - CDDogtags # CD
   - LunchboxBlue # CD
   - LunchboxYellow # CD
-  - Cane # CD
   - MedCrutchesForearm # CD
   - GoldRing # CD
   - SilverRing # CD
@@ -282,6 +290,13 @@
   - BartenderWintercoat
 
 - type: loadoutGroup
+  id: BartenderGoldenShaker
+  name: loadout-group-bartender-shaker
+  minLimit: 0
+  loadouts:
+  - BartenderGoldenShaker
+
+- type: loadoutGroup
   id: ChefHead
   name: loadout-group-chef-head
   minLimit: 0
@@ -392,10 +407,11 @@
   minLimit: 1
   loadouts:
   - Bible
-  - BibleDruid
   - BibleNanoTrasen
-  - BibleSatanic
-  - BibleTanakh
+  - BibleDruid
+  - BibleHonk
+  - BibleRatvar
+  - BibleNarsie
 
 - type: loadoutGroup
   id: JanitorHead
@@ -713,6 +729,13 @@
   - SteelWorkboots # CD
 
 - type: loadoutGroup
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - SeniorCourierPDA
+
+- type: loadoutGroup
   id: SalvageSpecialistBackpack
   name: loadout-group-salvage-specialist-backpack
   loadouts:
@@ -823,6 +846,7 @@
   - StationEngineerBackpack
   - StationEngineerSatchel
   - StationEngineerDuffel
+  - EngineeringCarrybag # CD
 
 - type: loadoutGroup
   id: StationEngineerOuterClothing
@@ -873,6 +897,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
+  - EngineeringCarrybag # CD
 
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
@@ -1050,6 +1075,7 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - SecurityGreatcoat # CD
+  - SecurityFieldjacket # CD
 
 - type: loadoutGroup
   id: WardenHead
@@ -1075,6 +1101,7 @@
   - WardenCoat
   - WardenArmoredWinterCoat
   - SecurityGreatcoat # CD
+  - SecurityFieldjacket # CD
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1082,8 +1109,10 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
+  - SecurityNewHelmet # CD
   - SecurityBeret
   - SecurityHat
+  - SecurityNewSoft # CD
   - TrooperHat
 
 - type: loadoutGroup
@@ -1094,6 +1123,9 @@
   - SecurityJumpskirt
   - SecurityCasualsuit # CD
   - SecurityCasualskirt # CD
+  - SecurityModernsuit # CD
+  - SecurityCasualSummer # CD
+  - SecurityCasualWinter # CD
   # - SeniorOfficerJumpsuit
   # - SeniorOfficerJumpskirt
   - SecurityJumpsuitGrey
@@ -1122,8 +1154,10 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
+  - SecurityNewVest # CD
   - SecurityOfficerWintercoat
   - SecurityGreatcoat # CD
+  - SecurityFieldjacket # CD
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1131,6 +1165,7 @@
   loadouts:
   - CombatBoots #CD change from JackBoots to CombatBoots
   - SecurityWinterBoots
+  - SecuritySneakers # CD
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1296,6 +1331,8 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - MedicalCarrybag # CD
+  - ParamedicCarrybag # CD
 
 - type: loadoutGroup
   id: MedicalShoes

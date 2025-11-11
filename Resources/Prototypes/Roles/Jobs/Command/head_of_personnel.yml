@@ -51,8 +51,9 @@
     # shoes: ClothingShoesColorBrown | CD, removed due to loadout addtion.
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
-    ears: ClothingHeadsetAltCommand
-    belt: BoxFolderClipboard
+    # ears: ClothingHeadsetAltCommand #CD: Loadouts
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash

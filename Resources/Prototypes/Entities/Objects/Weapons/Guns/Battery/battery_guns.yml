@@ -27,6 +27,38 @@
     price: 500
 
 - type: entity
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: BaseLaserRifle
+  abstract: true
+  components:
+  - type: Item
+    size: 50
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: StaticPrice
+    price: 420
+
+- type: entity
   id: BaseWeaponPowerCell
   parent: BaseItem
   abstract: true
@@ -200,47 +232,23 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  name: laser carbine
+  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserCarbine
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+
+- type: entity
+  name: practice laser carbine
+  parent: [BaseLaserRifle, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
+  - type: StaticPrice
+    price: 300
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
     fireCost: 62.5
-  - type: StaticPrice
-    price: 300
-
-- type: entity
-  name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
-  components:
-  - type: StaticPrice
-    price: 420
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+  - type: PacifismAllowedGun
 
 - type: entity
   name: pulse pistol
@@ -473,6 +481,7 @@
     tags:
     - Taser
     - Sidearm
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler
@@ -501,6 +510,7 @@
     guides:
     - Security
     - Antagonists
+  - type: PacifismAllowedGun
 
 - type: entity
   name: disabler SMG
@@ -539,6 +549,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: PacifismAllowedGun
 
 - type: entity
   name: taser
@@ -575,6 +586,24 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: PacifismAllowedGun
+
+- type: entity
+  name: elite taser
+  parent: [ BaseCentcommContraband, WeaponTaser ]
+  id: WeaponTaserSuper
+  suffix: ADMEME
+  description: A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
+  components:
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
+      params:
+        volume: -6
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTaserSuper
+    fireCost: 200
 
 - type: entity
   name: elite taser
@@ -763,7 +792,7 @@
 
 - type: entity
   name: energy shotgun
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
@@ -787,34 +816,69 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserSpread
-    fireCost: 150
+    proto: BulletLaserSpreadNarrow
+    fireCost: 80
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: BulletLaserSpread
-      fireCost: 150
     - proto: BulletLaserSpreadNarrow
-      fireCost: 200
+      fireCost: 80
     - proto: BulletDisablerSmgSpread
-      fireCost: 120
+      fireCost: 48
   - type: Item
     size: 80
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 480
+    startingCharge: 480
+
+- type: entity
+  name: energy magnum
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
+  id: WeaponEnergyMagnum
+  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-unshaded-1
+      visible: false
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
   - type: Tag
     tags:
     - HighRiskItem
   - type: StealTarget
-    stealGroup: WeaponEnergyShotgun
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: Battery
-    maxCharge: 1200
-    startingCharge: 1200
+    stealGroup: WeaponEnergyMagnum
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserMagnum
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserMagnum
+      fireCost: 150
+    - proto: BulletLaserWindowPiercingMagnum
+      fireCost: 150
+    - proto: BulletDisabler
+      fireCost: 62.5
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 24
+    autoRechargeRate: 48
     autoRechargePause: true
-    autoRechargePauseTime: 30
+    autoRechargePauseTime: 10
 
 - type: entity
   name: temperature gun

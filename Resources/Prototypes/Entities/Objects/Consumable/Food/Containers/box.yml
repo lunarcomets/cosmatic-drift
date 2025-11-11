@@ -46,6 +46,9 @@
   - type: Item
     sprite: Objects/Consumable/Food/Baked/donut.rsi
     size: 6
+    # size: Normal
+    # shape:
+    # - 0,0,2,1
     heldPrefix: box
   - type: StorageFill
     contents:
@@ -127,6 +130,10 @@
   - type: Item
     sprite: Objects/Consumable/Food/egg.rsi
     size: 12
+    # size: Normal
+    # shape:
+    # - 0,0,2,1
+    # #storedOffset: 0,-6
   - type: StorageFill
     contents:
     - id: FoodEgg
@@ -217,6 +224,9 @@
   - type: Item
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     heldPrefix: box
+    # shape:
+    # - 0,0,2,1
+    # #storedOffset: 0,-6
   - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: box-open
@@ -360,6 +370,10 @@
   - type: Item
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
     size: 7
+    # size: Normal
+    # shape:
+    # - 0,0,2,1
+    # #storedOffset: -1,1
   - type: StorageFill
     contents:
     - id: FoodDonkpocket
@@ -511,12 +525,14 @@
   - type: Item
     sprite: Objects/Storage/Happyhonk/clown.rsi
     heldPrefix: box
+    size: 40
   - type: Storage
-    capacity: 30
+    capacity: 40
   - type: Tag
     tags:
     - Trash
     - HappyHonk
+    - BoxCardboard
   - type: StorageFill
     contents:
       - id: ToyMouse
@@ -689,7 +705,8 @@
   - type: Tag
     tags:
     - Trash
-    - CluwneHappyHonk
+    - CluwneHappyHonk # BAD: Intentional removal of parent tag
+    - BoxCardboard
   - type: Sprite
     sprite: Objects/Storage/Happyhonk/cluwne.rsi
     state: box
@@ -708,8 +725,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: FoodBurgerCrazy
-        orGroup: Burgers
       - id: FoodBurgerCheese
         orGroup: Burgers
       - id: DrinkColaCan
@@ -866,12 +881,17 @@
     sprite: Objects/Consumable/Food/ingredients.rsi
     state: cloth-box
   - type: Storage
-    capacity: 30
-    whitelist:
+    # grid:
+    # - 0,0,1,1
+    # maxItemSize: Normal
+    whitelist: # TODO BoxCardboard shouldn't have whitelisted storage
       tags:
       - ClothMade
   - type: Item
     size: 30
+    # size: Normal
+    # shape:
+    # - 0,0,1,1
   - type: StorageFill
     contents:
     - id: MaterialCloth10
