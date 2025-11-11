@@ -29,7 +29,7 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
             });
 
         base.Initialize();
-    }   
+    }
 
     private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args)
     {
@@ -48,7 +48,7 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
         SelectBorgSubtype(ent);
     }
 
-    protected virtual void SelectBorgSubtype(Entity<BorgSwitchableSubtypeComponent> ent)
+    protected virtual void  SelectBorgSubtype(Entity<BorgSwitchableSubtypeComponent> ent)
     {
         UpdateEntityAppearance(ent);
     }

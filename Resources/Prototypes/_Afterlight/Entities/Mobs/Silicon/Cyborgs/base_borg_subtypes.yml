@@ -4,7 +4,7 @@
   abstract: true
   id: BorgSubtypeBase
   name: borg subtype base
-  description: Default state for other subtypes to use. 
+  description: Default state for other subtypes to use.
   components:
     - type: BorgSubtypeDefinition
       # Visuals
@@ -50,6 +50,22 @@
   components:
     - type: BorgSubtypeDefinition
       parentType: mining
+      layerData:
+      - state: miner
+        map: [ "enum.BorgVisualLayers.Body", "movement" ]
+      - state: miner_e
+        map: [ "enum.BorgVisualLayers.Light" ]
+        shader: unshaded
+        visible: false
+      - state: miner_l
+        shader: unshaded
+        map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+        visible: false
+
+        spriteBodyState: miner
+        spriteHasMindState: miner_e
+        # if rsi has a specific no mind state sprite, use that instead (i.e. borg_e_r)
+        spriteNoMindState: miner_e
 
       # Entity prototype for preview in selection menu
       dummyPrototype: BorgChassisMining
